@@ -19,18 +19,14 @@ app.use('/api/workouts' ,workoutRoutes)
 
 //connect to db(
 mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-
-//listen to port
-app.listen(process.env.PORT, () => {
-    console.log('listening to port', process.env.PORT)
-})
-})
-.catch(() => {
+ .then(() => {
+    app.listen(process.env.PORT, () => {
+        console.log('conneted to db & listening to port', process.env.PORT)
+    })
+ })
+ .catch((error) => {
     console.log(error)
-})
-
-
+ })
 
 
   
