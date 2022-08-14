@@ -33,11 +33,11 @@ const createWorkout = async(req, res) => {
     // adding doc to db
     try {
         const workout = await Workout.create({title, load, reps})
+        res.status(200).json(workout)
        
-     } catch (error) {
+     }catch(error) {
         res.status(400).json({error: error.message})
      } 
-     res.status(200).json(workout)
 }
 
 // delete a workout
@@ -51,7 +51,7 @@ const deleteWorkout = async (req, res) => {
     const workout = await Workout.findOneAndDelete({_id: id })
 
     if(!workout) {
-        return res.status(400).json({error: 'No such workout'})
+        return res.status(400).json('No Such Workout')
     }
 
     return res.status(200).json(workout)
@@ -61,7 +61,7 @@ const deleteWorkout = async (req, res) => {
 const updateWorkout = async (req, res) => {
     const { id } = req.params
 
-    if (!mongoose.Types.ObjectId.isValidy(id)) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'No such workout'})
     }
 
@@ -69,7 +69,7 @@ const updateWorkout = async (req, res) => {
         ...req.body
     })
 
-    if (!workout) {
+    if(!workout) {
         return res.status(400).json({error: 'No such workout'})
     }
 
