@@ -1,3 +1,11 @@
+## About Project
+
+This is a MERN stack project that has to do with Workout Session
+
+## About the Backend
+
+The Backwnd is Created with Node.js(Express) and the Database used is MongoDb
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
