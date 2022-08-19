@@ -3,16 +3,16 @@ import { useState } from "react"
 const WorkoutForm = () => {
      const [title, setTitle] = useState('');
      const [reps, setReps] = useState('');
-     const [loads, setLoads]=useState('')
+     const [load, setLoad] = useState('')
      const [error, setError] = useState(null)
 
 //SUbmit Handler
 const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const workout = {title, reps, loads}
+    const workout = {title, reps, load}
 
-    const response = await fetch('/api/workout', {
+    const response = await fetch('/api/workouts', {
         method: 'POST',
         body: JSON.stringify(workout),
         headers: {
@@ -23,12 +23,12 @@ const handleSubmit = async (event) => {
 
     //checking for error
     if(!response.ok) {
-        setTitle('')
-        setLoads('')
-        setReps('')
         setError(json.error)
     }
     if(response.ok) {
+        setTitle('')
+        setLoad('')
+        setReps('')
         setError(null)
         console.log('new workout found ', json)
     }
@@ -48,8 +48,8 @@ const handleSubmit = async (event) => {
 <label>Load (in Kg) :</label>
     <input 
     type='number'
-    onChange={(e) => setLoads (e.target.value)}
-    value={loads}
+    onChange={(e) => setLoad (e.target.value)}
+    value={load}
     />
 
 
@@ -59,7 +59,8 @@ const handleSubmit = async (event) => {
     onChange={(e) => setReps (e.target.value)}
     value={reps}
     />
-    <button> Add Workout </button>    
+    <button> Add Workout </button>  
+    {error && <div className="error"> {error} </div>}  
  </form>
   )
 }
