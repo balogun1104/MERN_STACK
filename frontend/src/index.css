@@ -32,7 +32,6 @@ header a {
   margin: 0 auto;
 }
 
-
 /* homepage */
 .home {
   display: grid;
@@ -53,7 +52,7 @@ header a {
   color: var(--primary);
 }
 .workout-details p {
-  margin: 0; 
+  margin: 0;
   font-size: 0.9em;
   color: #555;
 }
@@ -67,6 +66,7 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+
 /* new workout form */
 label, input {
   display: block;
@@ -96,4 +96,7 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
 }
