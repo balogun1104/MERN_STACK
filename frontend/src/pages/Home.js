@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
 // components
@@ -28,7 +29,11 @@ const Home = () => {
           <WorkoutDetails workout={workout} key={workout._id} />
         ))}
       </div>
-      <WorkoutForm />
+      <Link to={WorkoutForm}>
+      <h2 >Add Workout</h2>
+      </Link>
+      
+      {/* <WorkoutForm /> */}
     </div>
   )
 }
