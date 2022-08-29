@@ -29,11 +29,9 @@ const Home = () => {
           <WorkoutDetails workout={workout} key={workout._id} />
         ))}
       </div>
-      <Link to={WorkoutForm}>
-      <h2 >Add Workout</h2>
-      </Link>
+    
       
-      {/* <WorkoutForm /> */}
+      <WorkoutForm />
     </div>
   )
 }
